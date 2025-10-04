@@ -14,13 +14,13 @@ export default function Home() {
             Connect with recyclers, earn green points, and contribute to a sustainable future
           </p>
           <div className="flex gap-4 justify-center">
-            <Link href="/dashboard" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-              Get Started
-            </Link>
-            <Link href="/marketplace" className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
-              Browse Marketplace
-            </Link>
-          </div>
+  <Link href="/auth/signup" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+    Get Started
+  </Link>
+  <Link href="/marketplace" className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+    Browse Marketplace
+  </Link>
+</div>
         </div>
       </section>
 
