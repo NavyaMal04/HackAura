@@ -22,13 +22,13 @@ export default function Leaderboard() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-black min-h-screen text-white">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">
           <Trophy className="w-8 h-8 text-yellow-500" />
           Community Leaderboard
         </h1>
-        <p className="text-gray-600">Top contributors making a real impact</p>
+        <p className="text-gray-400">Top contributors making a real impact</p>
       </div>
 
       {/* Impact Stats */}
@@ -49,9 +49,9 @@ export default function Leaderboard() {
       </div>
 
       {/* Full Leaderboard Table */}
-      <div className="card">
+      <div className="bg-gray-900 p-6 rounded-xl shadow-lg">
         <h2 className="text-xl font-bold mb-4">Full Rankings</h2>
-        <LeaderboardTable users={topUsers} />
+        <LeaderboardTable users={topUsers} darkTheme />
       </div>
     </div>
   )
@@ -59,19 +59,19 @@ export default function Leaderboard() {
 
 function ImpactCard({ icon, label, value, color }) {
   const colors = {
-    yellow: 'text-yellow-500 bg-yellow-50',
-    green: 'text-green-500 bg-green-50',
-    blue: 'text-blue-500 bg-blue-50',
-    purple: 'text-purple-500 bg-purple-50'
+    yellow: 'text-yellow-500 bg-yellow-900/30',
+    green: 'text-green-500 bg-green-900/30',
+    blue: 'text-blue-500 bg-blue-900/30',
+    purple: 'text-purple-500 bg-purple-900/30'
   }
 
   return (
-    <div className="card">
+    <div className="bg-gray-800 rounded-xl p-4 flex flex-col items-center text-center shadow-md">
       <div className={`${colors[color]} w-16 h-16 rounded-full flex items-center justify-center mb-4`}>
         {icon}
       </div>
       <div className="text-2xl font-bold mb-1">{value}</div>
-      <div className="text-gray-600 text-sm">{label}</div>
+      <div className="text-gray-400 text-sm">{label}</div>
     </div>
   )
 }
@@ -81,13 +81,13 @@ function PodiumCard({ user }) {
   const heights = { 1: 'md:translate-y-0', 2: 'md:translate-y-4', 3: 'md:translate-y-8' }
 
   return (
-    <div className={`card text-center ${heights[user.rank]} transition-transform`}>
+    <div className={`bg-gray-800 rounded-xl p-6 text-center text-white ${heights[user.rank]} shadow-md transition-transform`}>
       <div className="text-6xl mb-4">{medals[user.rank]}</div>
       <div className="text-4xl mb-2">{user.avatar}</div>
       <h3 className="text-xl font-bold mb-2">{user.name}</h3>
-      <div className="text-3xl font-bold text-green-600 mb-1">{user.points}</div>
-      <div className="text-sm text-gray-600">Green Points</div>
-      <div className="mt-4 pt-4 border-t border-gray-200">
+      <div className="text-3xl font-bold text-green-500 mb-1">{user.points}</div>
+      <div className="text-sm text-gray-400">Green Points</div>
+      <div className="mt-4 pt-4 border-t border-gray-700">
         <div className="text-sm text-gray-500">Total Recycled</div>
         <div className="font-semibold">{user.recycled}</div>
       </div>

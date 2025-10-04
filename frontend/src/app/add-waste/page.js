@@ -1,7 +1,7 @@
-"use client";
+'use client';
 import Image from 'next/image'
 import { useState } from 'react'
-import { Upload, MapPin } from 'lucide-react'
+import { Upload, MapPin, ChevronDown } from 'lucide-react'
 
 export default function AddWaste() {
   const [formData, setFormData] = useState({
@@ -33,17 +33,16 @@ export default function AddWaste() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // Add API call here
     console.log('Form submitted:', formData)
     alert('Waste listing created successfully! 🎉')
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <h1 className="text-3xl font-bold mb-2">Add Waste Listing</h1>
-      <p className="text-gray-600 mb-8">List your recyclable waste for collection</p>
+    <div className="container mx-auto px-4 py-8 max-w-3xl bg-black min-h-screen">
+      <h1 className="text-3xl font-bold mb-2 text-white">Add Waste Listing</h1>
+      <p className="text-gray-300 mb-8">List your recyclable waste for collection</p>
 
-      <form onSubmit={handleSubmit} className="card">
+      <form onSubmit={handleSubmit} className="p-6 rounded-xl border border-gray-700 bg-gray-900 shadow-lg">
         {/* Title */}
         <div className="mb-6">
           <label className="block text-sm font-semibold mb-2">Title *</label>
@@ -52,20 +51,21 @@ export default function AddWaste() {
             name="title"
             required
             placeholder="e.g., Plastic Bottles - 50kg"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-normal focus:ring-2 focus:ring-green-500 focus:border-transparent"
             value={formData.title}
             onChange={handleChange}
           />
         </div>
 
-        {/* Type and Quantity */}
+        {/* Type, Quantity, and Unit */}
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <div>
+          {/* Waste Type */}
+          <div className="relative">
             <label className="block text-sm font-semibold mb-2">Waste Type *</label>
             <select
               name="type"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-bold appearance-none pr-10 focus:ring-2 focus:ring-green-500 focus:border-transparent"
               value={formData.type}
               onChange={handleChange}
             >
@@ -76,8 +76,10 @@ export default function AddWaste() {
               <option value="Glass">Glass</option>
               <option value="Organic">Organic</option>
             </select>
+            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300 pointer-events-none" />
           </div>
 
+          {/* Quantity */}
           <div>
             <label className="block text-sm font-semibold mb-2">Quantity *</label>
             <input
@@ -85,18 +87,19 @@ export default function AddWaste() {
               name="quantity"
               required
               placeholder="50"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-normal focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none"
               value={formData.quantity}
               onChange={handleChange}
             />
           </div>
 
-          <div>
+          {/* Unit */}
+          <div className="relative">
             <label className="block text-sm font-semibold mb-2">Unit *</label>
             <select
               name="unit"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-bold appearance-none pr-10 focus:ring-2 focus:ring-green-500 focus:border-transparent"
               value={formData.unit}
               onChange={handleChange}
             >
@@ -105,6 +108,7 @@ export default function AddWaste() {
               <option value="pieces">pieces</option>
               <option value="liters">liters</option>
             </select>
+            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300 pointer-events-none" />
           </div>
         </div>
 
@@ -112,13 +116,13 @@ export default function AddWaste() {
         <div className="mb-6">
           <label className="block text-sm font-semibold mb-2">Location *</label>
           <div className="relative">
-            <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-300" />
             <input
               type="text"
               name="location"
               required
               placeholder="Bangalore, Karnataka"
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-normal focus:ring-2 focus:ring-green-500 focus:border-transparent"
               value={formData.location}
               onChange={handleChange}
             />
@@ -132,7 +136,7 @@ export default function AddWaste() {
             name="description"
             rows="4"
             placeholder="Additional details about the waste..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-black text-white font-normal focus:ring-2 focus:ring-green-500 focus:border-transparent"
             value={formData.description}
             onChange={handleChange}
           />
@@ -141,7 +145,7 @@ export default function AddWaste() {
         {/* Image Upload */}
         <div className="mb-6">
           <label className="block text-sm font-semibold mb-2">Upload Image</label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-green-500 transition-colors">
+          <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 text-center hover:border-green-500 transition-colors">
             {imagePreview ? (
               <div className="relative">
                 <Image src={imagePreview} alt="Preview" width={256} height={256} className="max-h-64 mx-auto rounded-lg" />
@@ -151,16 +155,16 @@ export default function AddWaste() {
                     setImagePreview(null)
                     setFormData(prev => ({ ...prev, image: null }))
                   }}
-                  className="mt-4 text-red-600 hover:text-red-700"
+                  className="mt-4 text-red-500 hover:text-red-600 font-semibold"
                 >
                   Remove Image
                 </button>
               </div>
             ) : (
               <label className="cursor-pointer">
-                <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 mb-2">Click to upload or drag and drop</p>
-                <p className="text-sm text-gray-500">PNG, JPG up to 5MB</p>
+                <Upload className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-300 mb-2">Click to upload or drag and drop</p>
+                <p className="text-sm text-gray-400">PNG, JPG up to 5MB</p>
                 <input
                   type="file"
                   accept="image/*"
@@ -173,7 +177,10 @@ export default function AddWaste() {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full btn-primary">
+        <button
+          type="submit"
+          className="w-full py-3 rounded-lg bg-green-600 hover:bg-green-700 font-bold transition text-black"
+        >
           Create Listing
         </button>
       </form>

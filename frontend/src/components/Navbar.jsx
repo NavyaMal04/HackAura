@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, User, LogOut } from 'lucide-react'
+import { Menu, X, LogOut } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,11 +35,8 @@ export default function Navbar() {
               </Link>
             ))}
             
-            {/* User Menu */}
+            {/* User Menu (Logout only) */}
             <div className="flex items-center gap-2 ml-4">
-              <button className="p-2 hover:bg-gray-100 rounded-full transition">
-                <User className="w-5 h-5" />
-              </button>
               <button className="p-2 hover:bg-gray-100 rounded-full transition text-red-600">
                 <LogOut className="w-5 h-5" />
               </button>
@@ -69,9 +66,6 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex gap-2 px-4 mt-4 pt-4 border-t">
-              <button className="flex-1 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
-                Profile
-              </button>
               <button className="flex-1 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
                 Logout
               </button>
