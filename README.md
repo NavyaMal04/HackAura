@@ -143,6 +143,3 @@ Visit 👉 [http://localhost:3000](http://localhost:3000)
 
 This project is licensed under the **MIT License**.
 
----
-
-Do you want me to make this README more **professional & minimal (for recruiters)** or **detailed (for open-source contributors)**?
