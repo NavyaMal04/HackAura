@@ -1,0 +1,8 @@
+# Ignore secrets
+*.env
+*.json
+
+# (optional) only ignore Firebase key files
+waste-exchange-*-firebase-adminsdk-*.json
+# Node dependencies
+node_modules/

@@ -1,11 +1,10 @@
-const admin = require('firebase-admin');
-const serviceAccount = require('../waste-exchange-a94b0-firebase-adminsdk-fbsvc-78589f483e.json');
+import admin from "firebase-admin";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
 });
 
-const db = admin.firestore();
-const auth = admin.auth();
-
-module.exports = { admin, db, auth };
+export default admin;
