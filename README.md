@@ -30,33 +30,61 @@ Urban areas generate massive amounts of recyclable waste daily, yet a significan
 
 ## Project Structure
 waste-exchange-project/
+
 ├── frontend/
+
 │   ├── app/
+
 │   │   ├── globals.css
+
 │   │   ├── layout.js
+
 │   │   └── page.js
+
 │   ├── lib/
+
 │   │   ├── api.js
+
 │   │   └── firebase.js
+
 │   ├── tailwind.config.mjs
+
 │   ├── postcss.config.mjs
+
 │   └── package.json
+
 │
+
 └── backend/
+
 ├── config/
+
 │   └── firebase.js
+
 ├── routes/
+
 │   ├── items.js
+
 │   ├── auth.js
+
 │   └── claims.js
+
 ├── middleware/
+
 │   └── auth.js
+
 ├── utils/
+
 │   └── calculations.js
+
 ├── server.js
+
 ├── .env
+
 ├── serviceAccountKey.json (DO NOT COMMIT)
+
 └── package.json
+
 ## Installation & Setup
 
 ### Prerequisites
